@@ -29,8 +29,26 @@ flowchart TB
 ## Flowchart2 : Routine tasks
 
 ```mermaid
-flowchart LR
-  %% Kai-san create
+flowchart TB
+  %% Tenant graph
+  subgraph TENANTS
+    direction TB
+    S([start]) --> CheckTaskCalendar
+    CheckTaskCalendar --> ExecuteTasks
+    ExecuteTasks --> ReportCompletionToOwner
+    ReportCompletionToOwner
+  end
+  %% Owner graph
+  subgraph OWNER
+    direction TB
+    CheckResults{CheckResults}
+    CheckResults --> |OK| Completion
+    CheckResults --> |NG| OrderTenantsToStartOver
+    Completion --> E([end])
+  end
+  %% Connect tasks
+    ReportCompletionToOwner --> CheckResults
+    OrderTenantsToStartOver --> ExecuteTasks
 ```
 
 ## Flowchart3 : Edit tasks and members
