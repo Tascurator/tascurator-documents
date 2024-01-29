@@ -59,7 +59,7 @@ classDiagram
 
     class Tenant {
         TenantId TenantId
-        UUID uuid
+        UniqueLinkID UniqueLinkID
         String email
         String name
     }
@@ -68,8 +68,8 @@ classDiagram
         String id
     }
     
-    class UUID {
-        String uuid
+    class UniqueLinkID {
+        String id
     }
 
     Owner *-- OwnerId
@@ -85,5 +85,5 @@ classDiagram
     Task *-- TaskId
     Task *-- RotationCycle
     Tenant *-- TenantId
-    Tenant *-- UUID
+    Tenant *-- UniqueLinkID
 ```
