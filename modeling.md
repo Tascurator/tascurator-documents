@@ -13,11 +13,18 @@ classDiagram
     class ShareHouse {
         ShareHouseId ShareHouseId
         OwnerId OwnerId
+        ContainerId ContainerId
+    }
+    
+    class Container {
         Date startDate
         RotationCycle RotationCycle
-        List TaskId
-        List TaskGroupId
-        List TenantId
+        List TaskGroup
+        List Tenant
+    }
+    
+    class ContainerId {
+        String id
     }
 
     class RotationCycle {
@@ -25,6 +32,17 @@ classDiagram
     }
 
     class ShareHouseId {
+        String id
+    }
+
+    class TaskGroup {
+        TaskGroupId TaskGroupId
+        String name
+        TenantId initialTenantId
+        List Task
+    }
+
+    class TaskGroupId {
         String id
     }
 
@@ -36,16 +54,6 @@ classDiagram
     }
     
     class TaskId {
-        String id
-    }
-
-    class TaskGroup {
-        TaskGroupId TaskGroupId
-        String name
-        TenantId initialTenantId
-    }
-    
-    class TaskGroupId {
         String id
     }
 
@@ -66,15 +74,16 @@ classDiagram
 
     Owner *-- OwnerId
     ShareHouse *-- OwnerId
-    ShareHouse *-- RotationCycle
     ShareHouse *-- ShareHouseId
-    ShareHouse *-- TaskId
-    Task *-- TaskId
+    ShareHouse *-- ContainerId
+    Container *-- ContainerId
+    Container *-- TaskGroup
     TaskGroup *-- TaskGroupId
+    Container *-- Tenant
+    TaskGroup *-- Task
     Task *-- TaskGroupId
-    ShareHouse *-- TaskGroupId
+    Task *-- TaskId
+    Task *-- RotationCycle
     Tenant *-- TenantId
-    TaskGroup *-- TenantId
-    ShareHouse *-- TenantId
     Tenant *-- UUID
 ```
