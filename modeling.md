@@ -17,6 +17,7 @@ classDiagram
     }
     
     class Container {
+        ContainerId ContainerId
         Date startDate
         RotationCycle RotationCycle
         List TaskGroup
