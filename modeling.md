@@ -49,7 +49,6 @@ classDiagram
 
     class Task {
         TaskId TaskId
-        TaskGroupId TaskGroupId
         String title
         String description
     }
@@ -82,7 +81,6 @@ classDiagram
     TaskGroup *-- TaskGroupId
     Container *-- Tenant
     TaskGroup *-- Task
-    Task *-- TaskGroupId
     Task *-- TaskId
     Task *-- RotationCycle
     Tenant *-- TenantId
