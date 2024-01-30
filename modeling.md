@@ -24,6 +24,7 @@ classDiagram
         number currentRotation
         List TaskGroup
         List Tenant
+        List Event
     }
     
     class ManagerId {
@@ -106,8 +107,10 @@ classDiagram
     Manager *-- TaskGroup
     Manager *-- Tenant
     TaskGroup *-- TaskGroupId
-    Container *-- Tenant
     TaskGroup *-- Task
+    Event *-- EventId
+    Event *-- EventType
+    Event *-- AffectedEntities
     Task *-- TaskId
     Task *-- RotationCycle
     Tenant *-- TenantId
