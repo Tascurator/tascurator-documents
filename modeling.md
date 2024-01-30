@@ -21,6 +21,7 @@ classDiagram
         ManagerId ManagerId
         Date startDate
         RotationCycle RotationCycle
+        number currentRotation
         List TaskGroup
         List Tenant
     }
