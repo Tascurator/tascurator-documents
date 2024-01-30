@@ -14,18 +14,18 @@ classDiagram
         ShareHouseId ShareHouseId
         String name
         OwnerId OwnerId
-        ContainerId ContainerId
+        ManagerId ManagerId
     }
     
-    class Container {
-        ContainerId ContainerId
+    class Manager {
+        ManagerId ManagerId
         Date startDate
         RotationCycle RotationCycle
         List TaskGroup
         List Tenant
     }
     
-    class ContainerId {
+    class ManagerId {
         String id
     }
 
@@ -74,12 +74,36 @@ classDiagram
         String id
     }
 
+    class Event {
+        EventId EventId
+        EventType EventType
+        Number appliedRotation
+        List AffectedEntities
+    }
+
+    class EventId {
+        String id
+    }
+
+    class EventType {
+        String type
+    }
+
+    class AffectedEntities {
+        RotationCycle newRotationCycle
+        List TaskGroup
+        List Task
+        List Tenant
+    }
+
     Owner *-- OwnerId
     ShareHouse *-- OwnerId
     ShareHouse *-- ShareHouseId
-    ShareHouse *-- ContainerId
-    Container *-- ContainerId
-    Container *-- TaskGroup
+    ShareHouse *-- ManagerId
+    Manager *-- Event
+    Manager *-- ManagerId
+    Manager *-- TaskGroup
+    Manager *-- Tenant
     TaskGroup *-- TaskGroupId
     Container *-- Tenant
     TaskGroup *-- Task
