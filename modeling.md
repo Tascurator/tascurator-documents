@@ -51,6 +51,7 @@ classDiagram
         TaskId TaskId
         String title
         String description
+        Boolean done
     }
     
     class TaskId {
