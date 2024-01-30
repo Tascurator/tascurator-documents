@@ -12,6 +12,7 @@ classDiagram
 
     class ShareHouse {
         ShareHouseId ShareHouseId
+        String name
         OwnerId OwnerId
         ContainerId ContainerId
     }
