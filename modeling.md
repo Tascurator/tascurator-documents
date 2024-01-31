@@ -4,6 +4,7 @@ classDiagram
         OwnerId ownerId
         String email
         String password
+        List [ShareHouse]
     }
 
     class OwnerId {
@@ -11,108 +12,85 @@ classDiagram
     }
 
     class ShareHouse {
-        ShareHouseId ShareHouseId
+        ShareHouseId shareHouseId
         String name
-        OwnerId OwnerId
-        ManagerId ManagerId
-    }
-    
-    class Manager {
-        ManagerId ManagerId
-        Date startDate
-        RotationCycle RotationCycle
-        number currentRotation
-        List TaskGroup
-        List Tenant
-        List Event
-    }
-    
-    class ManagerId {
-        String id
-    }
-
-    class RotationCycle {
-        number days
+        Int rotationCycle
+        AssignmentSheet assignmentSheet
+        List [Category]
+        List [Tenant]
     }
 
     class ShareHouseId {
         String id
     }
 
-    class TaskGroup {
-        TaskGroupId TaskGroupId
-        String name
-        TenantId initialTenantId
-        List Task
+    class AssignmentSheet {
+        Date startDate
+        Date endDate
+        List [TenantsWork]
     }
 
-    class TaskGroupId {
+    class Category {
+        CategoryId categoryId
+        String name
+        TenantId initialTenantId
+        List [Task]
+    }
+
+    class CategoryId {
         String id
     }
 
     class Task {
-        TaskId TaskId
+        TaskId taskId
         String title
         String description
-        Boolean done
     }
-    
+
     class TaskId {
         String id
     }
 
     class Tenant {
-        TenantId TenantId
-        UniqueLinkID UniqueLinkID
+        TenantId tenantId
         String email
         String name
     }
-    
+
     class TenantId {
         String id
     }
-    
-    class UniqueLinkID {
-        String id
+
+    class TenantsWork {
+        TenantId tenantId
+        AssignedCategory assignedCategory
     }
 
-    class Event {
-        EventId EventId
-        EventType EventType
-        Number appliedRotation
-        List AffectedEntities
+    class AssignedCategory {
+        CategoryId categoryId
+        List [AssignedTask]
     }
 
-    class EventId {
-        String id
+    class AssignedTask {
+        TaskId taskId
+        boolean completed
     }
 
-    class EventType {
-        String type
-    }
+    Owner "1" *-- "1" OwnerId
+    Owner "1" *-- "many" ShareHouse
+    ShareHouse "1" *-- "1" ShareHouseId
+    ShareHouse "1" *-- "many" Category
+    ShareHouse "1" *-- "many" Tenant
+    ShareHouse "1" *-- "1" AssignmentSheet
+    Category "1" *-- "1" CategoryId
+    Category "1" *-- "many" Task
+    Task "1" *-- "1" TaskId
+    Tenant "1" *-- "1" TenantId
+    AssignmentSheet "1" *-- "many" TenantsWork
+    TenantsWork "1" *-- "1" AssignedCategory
+    TenantsWork "1" *-- "1" TenantId
+    AssignedCategory "1" *-- "1" CategoryId
+    AssignedCategory "1" *-- "many" AssignedTask
+    AssignedTask "1" *-- "1" TaskId
 
-    class AffectedEntities {
-        RotationCycle newRotationCycle
-        List TaskGroup
-        List Task
-        List Tenant
-    }
-
-    Owner *-- OwnerId
-    ShareHouse *-- OwnerId
-    ShareHouse *-- ShareHouseId
-    ShareHouse *-- ManagerId
-    Manager *-- Event
-    Manager *-- ManagerId
-    Manager *-- TaskGroup
-    Manager *-- Tenant
-    TaskGroup *-- TaskGroupId
-    TaskGroup *-- Task
-    Event *-- EventId
-    Event *-- EventType
-    Event *-- AffectedEntities
-    Task *-- TaskId
-    Task *-- RotationCycle
-    Tenant *-- TenantId
-    Tenant *-- UniqueLinkID
 ```
