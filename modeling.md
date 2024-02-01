@@ -1,3 +1,5 @@
+# Domain model
+
 ```mermaid
 classDiagram
     class Owner {
