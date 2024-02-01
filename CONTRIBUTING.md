@@ -11,8 +11,6 @@ _Note: This document is adapted from [a version](https://github.com/M-0923/wad20
     - [Types](#types-of-commit)
     - [Examples](#examples-of-commit-messages)
 3. [Pull Requests](#pull-requests)
-    - [For Team Members](#for-team-members)
-    - [For External Contributors](#for-external-contributors)
 
 
 ## Branching Rules
