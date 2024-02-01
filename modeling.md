@@ -68,11 +68,14 @@ classDiagram
 
     class AssignedCategory {
         CategoryId categoryId
+        String name
         List [AssignedTask]
     }
 
     class AssignedTask {
         TaskId taskId
+        String title
+        String description
         boolean completed
     }
 
