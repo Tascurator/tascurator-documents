@@ -99,3 +99,40 @@ classDiagram
     AssignedTask "1" *-- "1" TaskId
 
 ```
+
+# Terms and Constraints
+## Owner - オーナー
+
+
+
+## ShareHouse - シェアハウス
+
+
+
+## Category - カテゴリー
+
+
+
+## Task - タスク
+
+
+
+## Tenant - テナント
+
+
+
+## AssignmentSheet - 分担票
+
+
+
+## TenantsWork - 
+
+
+
+## AssignedCategory -　
+
+
+
+## AssignedTask - 
+
+
