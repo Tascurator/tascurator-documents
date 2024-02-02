@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 /**
  * Creating a sidebar enables you to:
@@ -13,21 +13,26 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     {
-      type: 'doc',
-      label: 'intro',
-      id: 'intro',
+      type: "doc",
+      label: "intro",
+      id: "intro",
     },
     {
-      type: 'category',
-      label: 'Dummy',
+      type: "category",
+      label: "Dummy",
       items: [
         {
-          type: 'doc',
-          label: 'Dummy',
-          id: 'dummy',
-        }
-      ]
-    }
+          type: "doc",
+          label: "Dummy",
+          id: "dummy",
+        },
+      ],
+    },
+    {
+      type: "doc",
+      label: "Domain model",
+      id: "modeling",
+    },
   ],
 };
 
