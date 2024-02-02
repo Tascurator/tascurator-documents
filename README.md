@@ -14,25 +14,13 @@
    cd tascurator-documents
    ```
 
-3. **Install the Dev-Dependencies with npm**
-
-   ```bash
-    npm i
-   ```
-
-4. **Navigate to the `docs` directory**
-
-   ```bash
-   cd docs
-   ```
-
-5. **Install the Dependencies with yarn**
+3. **Install the Dependencies**
 
    ```bash
     yarn
    ```
 
-6. **Start the Development Server**
+4. **Start the Docusaurus Development Server**
 
    ```bash
     yarn start
