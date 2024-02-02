@@ -8,7 +8,8 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "yarn workspace docs run start"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,scss,html,md}": "prettier --write"
@@ -20,5 +21,9 @@
     "husky": "^9.0.10",
     "lint-staged": "^15.2.1",
     "prettier": "^3.2.4"
-  }
+  },
+  "private": true,
+  "workspaces": [
+    "./docs"
+  ]
 }
