@@ -11,7 +11,7 @@ const config: Config = {
   url: 'https://dummy', // TODO: write the correct URL
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/tascurator-documents/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
