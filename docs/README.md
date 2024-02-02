@@ -24,18 +24,19 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
+### How to write document
 
-Using SSH:
+This document uses the [docusaurus](https://docusaurus.io/).
 
-```
-$ USE_SSH=true yarn deploy
-```
+You can create a new markdown file under the docs directory and write a document.
+Then you have to reflect the file mapping### How to write document
 
-Not using SSH:
+This document uses the [docusaurus](https://docusaurus.io/).
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+You can create a new markdown file under the docs directory and write a document.
+Then you have to reflect the file mapping to the sidebar.
+The sidebar is controlled by *sidebars.js* so  you have to update it.
+What should you write in it is written [here](https://docusaurus.io/docs/sidebar/items).
+ to the sidebar.
+The sidebar is controlled by *sidebars.js* so  you have to update it.
+What should you write in it is written [here](https://docusaurus.io/docs/sidebar/items).
