@@ -29,14 +29,6 @@ This command generates static content into the `build` directory and can be serv
 This document uses the [docusaurus](https://docusaurus.io/).
 
 You can create a new markdown file under the docs directory and write a document.
-Then you have to reflect the file mapping### How to write document
-
-This document uses the [docusaurus](https://docusaurus.io/).
-
-You can create a new markdown file under the docs directory and write a document.
 Then you have to reflect the file mapping to the sidebar.
-The sidebar is controlled by *sidebars.js* so  you have to update it.
-What should you write in it is written [here](https://docusaurus.io/docs/sidebar/items).
- to the sidebar.
 The sidebar is controlled by *sidebars.js* so  you have to update it.
 What should you write in it is written [here](https://docusaurus.io/docs/sidebar/items).
