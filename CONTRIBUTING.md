@@ -1,23 +1,24 @@
 # Contributing to the Project
-This document outlines the guidelines for contributing to the project. 
-_Note: This document is adapted from [a version](https://github.com/M-0923/wad202-final-project-nick/blob/main/CONTRIBUTING.md) originally created by [@hitohata](https://github.com/hitohata) and  [@uskayyyyy](https://github.com/uskayyyyy), with modifications to suit our project's needs. Thank you to both!_
+
+This document outlines the guidelines for contributing to the project.
+_Note: This document is adapted from [a version](https://github.com/M-0923/wad202-final-project-nick/blob/main/CONTRIBUTING.md) originally created by [@hitohata](https://github.com/hitohata) and [@uskayyyyy](https://github.com/uskayyyyy), with modifications to suit our project's needs. Thank you to both!_
 
 ## Table of Contents
 
 1. [Branching Rules](#branching-rules)
-    - [Types](#types-of-branch)
-    - [Examples](#examples-of-branches)
+   - [Types](#types-of-branch)
+   - [Examples](#examples-of-branches)
 2. [Commit Message Guidelines](#commit-message-guidelines)
-    - [Types](#types-of-commit)
-    - [Examples](#examples-of-commit-messages)
+   - [Types](#types-of-commit)
+   - [Examples](#examples-of-commit-messages)
 3. [Pull Requests](#pull-requests)
-    - [For Team Members](#for-team-members)
-    - [For External Contributors](#for-external-contributors)
-
+   - [For Team Members](#for-team-members)
+   - [For External Contributors](#for-external-contributors)
 
 ## Branching Rules
 
 Branch names should be descriptive, reflecting the purpose of the changes, following the format below.
+
 - Format: `<type>/<issue_number>-<brief_description>`
 
 _Note: `<issue_number>-` can be omitted if the modification is not based on an issue._
@@ -25,20 +26,23 @@ _Note: `<issue_number>-` can be omitted if the modification is not based on an i
 ### Types of Branch
 
 - `main`:
-    - **Purpose**: For production use.
-    - **Rule**: Direct commits are restricted. Changes arrive via pull requests from `feature/`, `hotfix/`, or `docs/` branches.
+
+  - **Purpose**: For production use.
+  - **Rule**: Direct commits are restricted. Changes arrive via pull requests from `feature/`, `hotfix/`, or `docs/` branches.
 
 - `feature/`:
-    - **Purpose**: Branches for developing new features or improvements.
-    - **Rule**: After completion and testing, submit a pull request to merge into `main`.
+
+  - **Purpose**: Branches for developing new features or improvements.
+  - **Rule**: After completion and testing, submit a pull request to merge into `main`.
 
 - `hotfix/`:
-    - **Purpose**: Branches for urgent fixes.
-    - **Rule**: After fixing, submit a pull request to merge into `main`.
+
+  - **Purpose**: Branches for urgent fixes.
+  - **Rule**: After fixing, submit a pull request to merge into `main`.
 
 - `docs/`:
-    - **Purpose**: Branches for documentation updates.
-    - **Rule**: Submit a pull request to merge updates into `main`.
+  - **Purpose**: Branches for documentation updates.
+  - **Rule**: Submit a pull request to merge updates into `main`.
 
 ### Examples of Branches
 
@@ -54,6 +58,7 @@ This project follows a following conventional commit message format.
 - We kindly ask you to write the `description` with a lowercase letter.
 
 ### Types of Commit
+
 - `feat`: New features or additions
 - `fix`: Bug fixes
 - `docs`: Changes to documentation
@@ -63,6 +68,7 @@ This project follows a following conventional commit message format.
 - `chore`: Maintenance tasks
 
 ### Examples of Commit Messages
+
 - Bad: `Made changes to login`
 - Good examples:
   - `feat: introduce user profiles`
@@ -73,7 +79,6 @@ This project follows a following conventional commit message format.
   - `test: cover user deletion scenarios`
   - `chore: upgrade to webpack 5`
 
-
 If you are interested in the detailed specification you can visit:
 
 - [Conventional Commits](https://www.conventionalcommits.org/)
@@ -81,6 +86,7 @@ If you are interested in the detailed specification you can visit:
 - [Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 
 ## Pull Requests
+
 When merging pull requests into the `main` branch, we use the "squash and merge" strategy. This approach combines all commits from the branch into a single commit in the `main` branch, ensuring our commit history remains clean and easy to follow.
 
 ### For Team Members:

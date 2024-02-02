@@ -17,7 +17,6 @@ Example:
 
 -->
 
-
 ## Overview
 
 <!-- Describe the purpose of this PR. -->
@@ -38,7 +37,6 @@ Example:
 
 <!-- List the points you would like to be reviewed in detail and the points you are not confident about. -->
 <!-- Delete this section if not needed -->
-
 
 - What should the reviewer look at?
 

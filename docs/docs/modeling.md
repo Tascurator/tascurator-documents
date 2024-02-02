@@ -101,38 +101,21 @@ classDiagram
 ```
 
 # Terms and Constraints
+
 ## Owner - オーナー
-
-
 
 ## ShareHouse - シェアハウス
 
-
-
 ## Category - カテゴリー
-
-
 
 ## Task - タスク
 
-
-
 ## Tenant - テナント
-
-
 
 ## AssignmentSheet - 分担票
 
-
-
-## TenantsWork - 
-
-
+## TenantsWork -
 
 ## AssignedCategory -　
 
-
-
-## AssignedTask - 
-
-
+## AssignedTask -
