@@ -63,8 +63,16 @@ This project follows a following conventional commit message format.
 - `chore`: Maintenance tasks
 
 ### Examples of Commit Messages
-- Good: `feat: add user login functionality`
 - Bad: `Made changes to login`
+- Good examples:
+  - `feat: introduce user profiles`
+  - `fix: resolve memory leak in user sessions`
+  - `docs(api): enhance API endpoint documentation`
+  - `style(widgets): adjust widget styling for consistency`
+  - `refactor: improve query efficiency`
+  - `test: cover user deletion scenarios`
+  - `chore: upgrade to webpack 5`
+
 
 If you are interested in the detailed specification you can visit:
 
