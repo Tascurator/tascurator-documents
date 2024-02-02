@@ -11,6 +11,8 @@ _Note: This document is adapted from [a version](https://github.com/M-0923/wad20
     - [Types](#types-of-commit)
     - [Examples](#examples-of-commit-messages)
 3. [Pull Requests](#pull-requests)
+    - [For Team Members](#for-team-members)
+    - [For External Contributors](#for-external-contributors)
 
 
 ## Branching Rules
@@ -73,6 +75,8 @@ If you are interested in the detailed specification you can visit:
 ## Pull Requests
 When merging pull requests into the `main` branch, we use the "squash and merge" strategy. This approach combines all commits from the branch into a single commit in the `main` branch, ensuring our commit history remains clean and easy to follow.
 
+### For Team Members:
+
 1. Create a new branch from the `main` branch.
 2. Follow the [Branch Rules](#branching-rules) while naming your branch.
 3. Work on your changes locally.
@@ -80,3 +84,15 @@ When merging pull requests into the `main` branch, we use the "squash and merge"
 5. Push your branch to the repository.
 6. Create a Pull Request against the original branch you branched from.
 7. Await code review, and address any comments as necessary.
+
+### For External Contributors:
+
+1. Fork the repository to your own GitHub account.
+2. Clone your forked repository locally.
+3. Create a new branch from the `main` branch on your fork.
+4. Follow the [Branching Rules](#branching-rules) while naming your branch.
+5. Work on your changes locally.
+6. Commit your changes, ensuring to follow the project's [commit message guidelines](#commit-message-guidelines).
+7. Push your branch to your forked repository.
+8. Create a Pull Request against the `main` branch of the original repository.
+9. Await code review, and address any comments as necessary.
