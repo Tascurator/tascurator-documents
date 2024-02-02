@@ -1,0 +1,64 @@
+<!--
+
+PR Title Rules
+
+- Use the same convention rules as the branch naming rules
+- Take a look at this for your reference:
+  https://www.conventionalcommits.org/en/v1.0.0/#summary
+
+- Format: <type>(optional scope): <description>
+- Kindly ask you to write the description with a lowercase letter
+
+Example:
+- feat: add user authentication system
+- fix: resolve navigation bar overlap issue
+- refactor: improve error handling in payment gateway
+- test(API): increase coverage for user authentication tests
+
+-->
+
+
+## Overview
+
+<!-- Describe the purpose of this PR. -->
+
+- What does this PR do?
+- Screenshots (if applicable)
+
+## Changes
+
+<!-- List the changes introduced by this PR. -->
+<!-- Delete this section if not needed -->
+
+- Change 1
+- Change 2
+- ...
+
+## Review points
+
+<!-- List the points you would like to be reviewed in detail and the points you are not confident about. -->
+<!-- Delete this section if not needed -->
+
+
+- What should the reviewer look at?
+
+## Notes
+
+<!-- List the points you would like to be reviewed in detail and the points you are not confident about. -->
+<!-- Delete this section if not needed -->
+
+- Any additional context or things to note
+
+## Assignee Checklist:
+
+<!-- Tick the checkboxes if you have done the following: -->
+
+- [ ] The base branch is correct (no accidental merges)
+
+## Reviewer Checklist
+
+<!-- Tick the checkboxes if you have done the following: -->
+
+- Code readability and simplicity
+- Follows best practices and coding standards
+- Understandable and maintainable code
