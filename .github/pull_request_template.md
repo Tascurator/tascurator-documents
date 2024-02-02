@@ -63,6 +63,6 @@ Example:
 
 <!-- Tick the checkboxes if you have done the following: -->
 
-- [ ] Code readability and simplicity
-- [ ] Follows best practices and coding standards
-- [ ] Understandable and maintainable code
+- Code readability and simplicity
+- Follows best practices and coding standards
+- Understandable and maintainable code
