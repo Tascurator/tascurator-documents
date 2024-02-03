@@ -8,7 +8,7 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "start": "yarn workspace docs run start"
   },
   "lint-staged": {
