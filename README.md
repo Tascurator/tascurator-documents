@@ -1,4 +1,4 @@
-# tascurator-documents
+# Tascurator Documents
 
 ## Getting Started
 
