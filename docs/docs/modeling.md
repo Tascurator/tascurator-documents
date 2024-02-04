@@ -65,7 +65,7 @@ classDiagram
 
     class TenantsWork {
         TenantId tenantId
-        AssignedCategory assignedCategory
+        List [AssignedCategory]
     }
 
     class AssignedCategory {
@@ -114,7 +114,25 @@ classDiagram
 
 ## AssignmentSheet - 分担票
 
-## TenantsWork -
+## TenantsWork - 割当
+
+TenantsWork refers to the set of tasks assigned(AssignedCategory) to each tenant.
+
+### Tenant IDs
+
+The TenantsWork contains Tenants. The TenantsWork class has Tenant ID.
+
+Constraints:
+
+- The TenantsWork cannot exist without any Tenants.
+
+### AssignedCategory
+
+The TenantsWork contains AssignedCategory. The TenantsWork class has AssignedCategory list.
+
+Constraints:
+
+- The TenantsWork cannot exist without any AssignedCategory.
 
 ## AssignedCategory -　
 
