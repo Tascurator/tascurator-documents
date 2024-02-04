@@ -92,7 +92,7 @@ classDiagram
     Task "1" *-- "1" TaskId
     Tenant "1" *-- "1" TenantId
     AssignmentSheet "1" *-- "many" TenantsWork
-    TenantsWork "1" *-- "1" AssignedCategory
+    TenantsWork "1" *-- "many" AssignedCategory
     TenantsWork "1" *-- "1" TenantId
     AssignedCategory "1" *-- "1" CategoryId
     AssignedCategory "1" *-- "many" AssignedTask
@@ -118,13 +118,13 @@ classDiagram
 
 TenantsWork refers to the set of tasks assigned(AssignedCategory) to each tenant.
 
-### Tenant IDs
+### Tenant ID
 
-The TenantsWork contains Tenants. The TenantsWork class has Tenant ID.
+The TenantsWork class has Tenant ID. TenantsWork will be created per Tenant.
 
 Constraints:
 
-- The TenantsWork cannot exist without any Tenants.
+- The TenantsWork must have only one TenantId.
 
 ### AssignedCategory
 
@@ -133,6 +133,7 @@ The TenantsWork contains AssignedCategory. The TenantsWork class has AssignedCat
 Constraints:
 
 - The TenantsWork cannot exist without any AssignedCategory.
+- The TenantsWork can have more than 1 AssignedCategory.
 
 ## AssignedCategory -　
 
