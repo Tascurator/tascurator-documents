@@ -114,6 +114,25 @@ classDiagram
 
 ## AssignmentSheet - 分担票
 
+Tenant's task assignment table.  
+The assignmentSheet is including startDate,endDate and TenantsWork.
+
+### startDate
+
+The start date of the task to be performed by Tenant.
+
+Constraints：
+
+- Owner must select startDate.
+
+### endDate:
+
+The end day the task must be completed.
+
+### TenantsWork
+
+Tasks to be performed by tenant.
+
 ## TenantsWork -
 
 ## AssignedCategory -　
