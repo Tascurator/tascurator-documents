@@ -103,7 +103,24 @@ classDiagram
 # Terms and Constraints
 
 ## Owner - オーナー
+### Owner
+The Owner is the Owner of ShareHouse
+### Owner ID (Identifier)
+The Owner ID is the UUID.
+### Email Address (Value Object)
+The Owner has an email address.
+### Password
+The Owner has a password.
 
+Constraints:
+Password must be
+- at least 8 characters
+- at least one capital letter
+- at least lowercase letter
+- at least one special character
+- at least one number
+### ShareHouse IDs
+The Owner is able to contain ShareHouse. The Owner class has ShareHouse ID list.
 ## ShareHouse - シェアハウス
 
 ## Category - カテゴリー
