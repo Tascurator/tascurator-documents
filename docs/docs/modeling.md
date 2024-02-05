@@ -117,6 +117,10 @@ classDiagram
 Tenant's task assignment table.  
 The assignmentSheet is including startDate,endDate and TenantsWork.
 
+Constraints：
+
+- The AssignmentSheet cannot exist without StartDate, EndDate and TenantsWork.
+
 ### startDate
 
 The start date of the task to be performed by Tenant.
@@ -124,10 +128,15 @@ The start date of the task to be performed by Tenant.
 Constraints：
 
 - Owner must select startDate.
+- The time zone is PST (Pacific Standard Time).
 
 ### endDate:
 
 The end day the task must be completed.
+
+Constraints：
+
+- The time zone is PST (Pacific Standard Time).
 
 ### TenantsWork
 
