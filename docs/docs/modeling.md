@@ -118,4 +118,24 @@ classDiagram
 
 ## AssignedCategory -　
 
-## AssignedTask -
+## AssignedTask - 割当タスク
+
+### taskId
+
+- TaskId is the UUID
+
+### title
+
+- The owner can set a title as they prefer. This title can be modified at any time.
+  Constraints:
+- It must be between 1 and 20 characters in length.
+
+### description
+
+- The owner can provide details for the task. This description can be modified at any time.
+  Constraints:
+- The description must be between 10 and 120 characters.
+
+### completed
+
+- Whether the task is completed or not.
