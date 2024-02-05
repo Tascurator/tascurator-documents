@@ -137,6 +137,11 @@ Tenant's task assignment table.
 
 Category listings have multiple categories.
 
+Constraints：
+
+- All tenants must be assigned a category.
+- The same tenant cannot be selected.
+
 ### List[Tenant]
 
 Tenant listings have multiple tenants.
