@@ -35,7 +35,6 @@ classDiagram
     class Category {
         CategoryId categoryId
         String name
-        TenantId initialTenantId
         List [Task]
     }
 
@@ -107,6 +106,25 @@ classDiagram
 ## ShareHouse - シェアハウス
 
 ## Category - カテゴリー
+
+### Category ID
+
+Category ID is an unique ID.
+
+### Name
+
+The name of group to which the task belongs.  
+Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can create additional categories as they like apart from those listed.
+
+#### Constraints
+
+- the name must be unique.
+- It must be less than equal to 15 letters and greater than equal to 1.
+- The maximum number of categories per sharehouse is 20.
+
+### Task
+
+Category contains Task. Category has Task list.
 
 ## Task - タスク
 
