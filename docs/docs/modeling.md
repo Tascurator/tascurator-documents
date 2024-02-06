@@ -116,6 +116,20 @@ classDiagram
 
 ## TenantsWork -
 
-## AssignedCategory -　
+## AssignedCategory -　割当カテゴリー
+
+Category assigned to each tenant.
+
+### Category ID
+
+Category ID is the unique identifier set for Category assigned to a tenant.
+
+### Name
+
+Name is set for Category assigned to a tenant.
+
+### AssignedTask
+
+AssignedCategory contains AssignedTask. AssignedCategory has AssignedTask list.
 
 ## AssignedTask -
