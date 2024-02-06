@@ -127,13 +127,17 @@ classDiagram
 ### title
 
 - The owner can set a title as they prefer. This title can be modified at any time.
-  Constraints:
+
+Constraints:
+
 - It must be between 1 and 20 characters in length.
 
 ### description
 
 - The owner can provide details for the task. This description can be modified at any time.
-  Constraints:
+
+Constraints:
+
 - The description must be between 10 and 120 characters.
 
 ### completed
