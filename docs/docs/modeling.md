@@ -57,7 +57,7 @@ classDiagram
         TenantId tenantId
         String email
         String name
-        Number ExtraTaskCount
+        Int ExtraTaskCount
     }
 
     class TenantId {
