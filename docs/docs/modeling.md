@@ -118,7 +118,8 @@ classDiagram
 
 ## AssignedCategory -　割当カテゴリー
 
-Category assigned to each tenant.
+Category assigned to each tenant.  
+AssignedCategory, which refers to the Category, cannot exist without Category.
 
 ### Category ID
 
