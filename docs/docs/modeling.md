@@ -117,7 +117,7 @@ The ShareHouse ID is the UUID.
 The name of the ShareHouse can be set and changed.
 The ShareHouse has a default name when created without specifying one.
 
-Constraints：ShareHouse Name must be
+Constraints：The ShareHouse Name must be
 
 - at least 1 character and no more than 15 characters long.
 
