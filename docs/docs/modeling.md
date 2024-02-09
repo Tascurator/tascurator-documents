@@ -118,8 +118,8 @@ The Landlord has an email address.
 
 Constraints:
 
-- The email address must be unique. (Landlords cannot create multiple accounts with the same email address).
-- The email address must be in a valid format.
+- unique. (Landlords cannot create multiple accounts with the same email address).
+- in a valid format.
 
 ### Password
 
