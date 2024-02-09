@@ -2,14 +2,14 @@
 
 ```mermaid
 classDiagram
-    class Owner {
-        OwnerId ownerId
+    class Landlord {
+        LandlordId LandlordId
         String email
         String password
         List [ShareHouse]
     }
 
-    class OwnerId {
+    class LandlordId {
         String id
     }
 
@@ -81,8 +81,8 @@ classDiagram
         boolean completed
     }
 
-    Owner "1" *-- "1" OwnerId
-    Owner "1" *-- "many" ShareHouse
+    Landlord "1" *-- "1" LandlordId
+    Landlord "1" *-- "many" ShareHouse
     ShareHouse "1" *-- "1" ShareHouseId
     ShareHouse "1" *-- "many" Category
     ShareHouse "1" *-- "many" Tenant
@@ -102,36 +102,38 @@ classDiagram
 
 # Terms and Constraints
 
-## Owner - オーナー
+## Landlord - 大家
 
-### Owner
+### Landlord
 
-The Owner contains ShareHouse.
+The Landlord contains ShareHouse.
 
-### Owner ID (Identifier)
+### Landlord ID (Identifier)
 
-The Owner ID is a UUID.
+The Landlord ID is a UUID.
 
 ### Email Address (Value Object)
 
-The Owner has an email address.
+The Landlord has an email address.
 
 Constraints:
 
-- The email address must be unique. (Owners cannot create multiple accounts with the same email address).
+- The email address must be unique. (Landlords cannot create multiple accounts with the same email address).
 - The email address must be in a valid format.
 
 ### Password
 
-The Owner has a password.
+The Landlord has a password.
 
 Constraints:
 
-- The password must be at least 8 characters long.
-- The password must contain at least 1 capital letter.
-- The password must contain at least 1 lowercase letter.
-- The password must contain at least 1 special character.
-- The password must contain at least 1 number.
+- at least 8 characters long.
+- less than 30 characters long.
+- at least 1 capital letter.
+- at least 1 lowercase letter.
+- at least 1 special character.
+- at least 1 number.
+- can be modified by Tenant at any time
 
 ## ShareHouse - シェアハウス
 
