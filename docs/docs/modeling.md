@@ -57,7 +57,7 @@ classDiagram
         TenantId tenantId
         String email
         String name
-        Int ExtraTaskCount
+        Int extraAssignedCount
     }
 
     class TenantId {
@@ -123,10 +123,10 @@ The Tenant has a name.
 
 Constraints:
 
-- Name must be at least one character no more than 15 characters.
-- Name must be unique (no duplicates).
-- Name can set a group name as they like, not limited to the actual personal name.
-- Name can change anytime.
+- at least one character no more than 15 characters.
+- unique (no duplicates).
+- does not have to be the legal name; an arbitrary name can be used instead.
+- can be changed anytime.
 
 ### Email Address (Value Object)
 
@@ -134,17 +134,18 @@ The Tenant has an email address.
 
 Constraints:
 
-- Email Address must be unique.
-- Email Address cannot be changed after sending invitation mail.
+- unique.
+- should be recognized consistently, irrespective of capitalization.
+- cannot be changed after sending invitation mail.
 
-### ExtraTaskCount
+### extraAssignedCount
 
-The default number of The ExtraTaskCount is 0. If the number of Categories is larger than the number of Tenants, ExtraTaskCount is used to ensure that an equal number of tasks(Category) are assigned to each Tenant.
+The default number of The extraAssignedCount is 0. If the number of Categories is larger than the number of Tenants, extraAssignedCount is used to ensure that an equal number of tasks(Category) are assigned to each Tenant.
 
 Constraints:
 
-- ExtraTaskCount must be more than 0.
-- ExtraTaskCount must be integer
+- extraAssignedCount must be more than 0.
+- extraAssignedCount must be integer
 
 ## AssignmentSheet - 分担票
 
