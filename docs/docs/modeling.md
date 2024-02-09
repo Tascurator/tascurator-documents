@@ -111,11 +111,12 @@ Group to which Task belongs. The landlord can add Task to Categories after creat
 
 #### Constraints
 
-- The maximum number of Categories is 20, and there must be at least one Category per sharehouse.
+- The maximum number of Categories is 15.
+- At least one Category per ShareHouse.
 
 ### Category ID
 
-Category ID is an unique ID.
+Category ID is UUID.
 
 ### Name
 
@@ -124,16 +125,19 @@ Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can
 
 #### Constraints
 
-- Name must be unique.
-- It must be less than equal to 15 letters and greater than equal to 1.
+- Uniqueness
+- Less than equal to 15 letters
+- Greater than equal to 1 letters
+- Can be modified by Landlord as they like
+- Uppercase and lowercase letters are recognized as the same characters
 
 ### Task
 
-Category contains Task. Category has Task list.
+Category contains a list of tasks.
 
 #### Constraints
 
-- Category must contain at least one Task.
+- Must contain at least one Task.
 
 ## Task - タスク
 
@@ -143,6 +147,6 @@ Category contains Task. Category has Task list.
 
 ## TenantsWork -
 
-## AssignedCategory -　
+## AssignedCategory -
 
 ## AssignedTask -
