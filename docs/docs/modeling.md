@@ -116,24 +116,23 @@ classDiagram
 
 ## TenantsWork - 割当
 
+## TenantsWork(Entity)
+
 TenantsWork refers to the set of tasks assigned(AssignedCategory) to each tenant.
+
+Constraints:
+
+- cannot exist without any AssignedCategory.
+- have only one TenantId.
+- can have more than 1 AssignedCategory.
 
 ### Tenant ID
 
 The TenantsWork class has Tenant ID. TenantsWork will be created per Tenant.
 
-Constraints:
-
-- The TenantsWork must have only one TenantId.
-
 ### AssignedCategory
 
 The TenantsWork contains AssignedCategory. The TenantsWork class has AssignedCategory list.
-
-Constraints:
-
-- The TenantsWork cannot exist without any AssignedCategory.
-- The TenantsWork can have more than 1 AssignedCategory.
 
 ## AssignedCategory -　
 
