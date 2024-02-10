@@ -116,7 +116,7 @@ Group to which Task belongs. The landlord can add Task to Categories after creat
 
 ### Category ID
 
-Category ID is UUID.
+Category ID is the UUID.
 
 ### Name
 
@@ -126,12 +126,12 @@ Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can
 #### Constraints
 
 - Uniqueness
-- Less than equal to 15 letters
-- Greater than equal to 1 letters
+- Less than or equal to 15 letters
+- Greater than or equal to 1 letters
 - Can be modified by Landlord as they like
 - Uppercase and lowercase letters are recognized as the same characters
 
-### Task
+### List [Task]
 
 Category contains a list of tasks.
 
