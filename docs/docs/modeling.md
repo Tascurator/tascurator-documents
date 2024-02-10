@@ -123,14 +123,14 @@ AssignedCategory, which refers to the Category, cannot exist without Category.
 
 ### Category ID
 
-Category ID is the unique identifier set for Category assigned to a tenant.
+Category ID is the UUID set for Category assigned to a tenant.
 
 ### Name
 
 Name is set for Category assigned to a tenant.
 
-### AssignedTask
+### List [AssignedTask]
 
-AssignedCategory contains AssignedTask. AssignedCategory has AssignedTask list.
+AssignedCategory contains a list of AssignedTasks.
 
 ## AssignedTask -
