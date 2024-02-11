@@ -115,32 +115,32 @@ classDiagram
 ## AssignmentSheet - 分担票
 
 Tenant's task assignment table.  
-The assignmentSheet is including startDate,endDate and TenantsWork.
+The AssignmentSheet is including startDate, endDate and TenantsWork.
 
 Constraints：
 
-- The AssignmentSheet cannot exist without StartDate, EndDate and TenantsWork.
+- Cannot exist without startDate, endDate and TenantsWork
 
 ### startDate
 
-The start date of the task to be performed by Tenant.
+The startDate of the task to be performed by the Tenant.
 
 Constraints：
 
-- Owner must select startDate.
-- The time zone is PST (Pacific Standard Time).
+- Must contain the startDate
+- The time zone is PST (Pacific Standard Time)
 
 ### endDate:
 
-The end day the task must be completed.
+The deadline for completing the task.
 
 Constraints：
 
-- The time zone is PST (Pacific Standard Time).
+- The time zone is PST (Pacific Standard Time)
 
-### TenantsWork
+### List [TenantsWork]
 
-Tasks to be performed by tenant.
+The TenantsWork has tasks assigned to each tenant AssignedCategory.
 
 ## TenantsWork -
 
