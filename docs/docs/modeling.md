@@ -112,27 +112,33 @@ classDiagram
 
 ### Task
 
-- A specific work or activity that tenants are responsible for performing.
+A specific work or activity that tenants are responsible for performing.
 
-### taskId
+### taskId (Identifier)
 
-- TaskId is the UUID
-
-- Constraints:
+The TaskId is a UUID
 
 ### title
 
-- The owner can set a title as they prefer. This title can be modified at any time.
+The title is a name of the task
 
-- Constraints:
-  - It must be between 1 and 20 characters in length.
+Constraints:
+
+- at least 1 character
+- less than 20 characters
+- can be modified at any time
 
 ### description
 
-- The owner can provide details for the task. The description must be between 10 and 120 characters. This description can be modified at any time.
+The `Landlord` can provide details for a task.
 
-- Constraints:
-  - It must be between 1 and 20 characters in length.
+Constraints:
+
+- at least 10 characters
+- less than 1000 characters
+- can be modified at any time
+- should be related to category
+- can use bold, italic, and a bulleted or numbered list
 
 ## Tenant - テナント
 
