@@ -107,12 +107,14 @@ classDiagram
 
 ## Category - カテゴリー
 
-Group to which Task belongs. The landlord can add Task to Categories after creating Category.
+Group to which Task belongs. The landlord can add Task to Category after creating Category.  
+Display a warning dialog when deleting Category that owns Tasks.
 
 #### Constraints
 
-- The maximum number of Categories is 15.
-- At least one Category per ShareHouse.
+- The maximum number of Categories is 15
+- At least one Category per ShareHouse
+- Category doesn't exist unless there is at least one task associated with it
 
 ### Category ID
 
@@ -133,11 +135,13 @@ Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can
 
 ### List [Task]
 
-Category contains a list of tasks.
+Category contains a list of tasks.  
+Display a waring dialog when relocating a Task, which is the only one in the Category, to another Category.
 
 #### Constraints
 
-- Must contain at least one Task.
+- Must contain at least one Task
+- Can relocate to only existing Category
 
 ## Task - タスク
 
