@@ -127,6 +127,7 @@ Constraints:
 - at least 1 character
 - less than 20 characters
 - can be modified at any time
+- must be contained in a `Category`
 
 ### description
 
@@ -137,7 +138,6 @@ Constraints:
 - at least 10 characters
 - less than 1000 characters
 - can be modified at any time
-- should be related to category
 - can use bold, italic, and a bulleted or numbered list
 
 ## Tenant - テナント
