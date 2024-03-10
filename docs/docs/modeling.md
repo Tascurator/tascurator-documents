@@ -107,7 +107,7 @@ classDiagram
 
 ## Category - カテゴリー
 
-Group to which Task belongs. The landlord can add Task to Category after creating Category.  
+The Category is a group to which Task belongs. The landlord can add a Task to the Category after creating Category.  
 Display a warning dialog when deleting Category that owns Tasks.
 
 #### Constraints
@@ -122,14 +122,14 @@ Category ID is the UUID.
 
 ### Name
 
-The name of group to which Task belongs.  
+The name of Category to which Task belongs.  
 Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can create additional categories as they like apart from those listed.
 
 #### Constraints
 
 - Uniqueness
 - Less than or equal to 15 letters
-- Greater than or equal to 1 letters
+- Greater than or equal to 1 letter
 - Can be modified by Landlord as they like
 - Uppercase and lowercase letters are recognized as the same characters
 
