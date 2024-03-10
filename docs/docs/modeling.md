@@ -106,6 +106,7 @@ classDiagram
 
 ### Landlord
 
+The Landlord is the user of Tascurator.
 The Landlord contains ShareHouse.
 
 ### Landlord ID (Identifier)
@@ -118,8 +119,8 @@ The Landlord has an email address.
 
 Constraints:
 
-- unique. (Landlords cannot create multiple accounts with the same email address).
-- in a valid format.
+- Uniqueness
+- In a valid format
 
 ### Password
 
@@ -127,13 +128,13 @@ The Landlord has a password.
 
 Constraints:
 
-- at least 8 characters long.
-- less than 30 characters long.
-- at least 1 capital letter.
-- at least 1 lowercase letter.
-- at least 1 special character.
-- at least 1 number.
-- can be modified by Tenant at any time
+- Less than or equal to 8 characters long
+- Greater than or equal to characters long
+- At least 1 capital letter
+- At least 1 lowercase letter
+- At least 1 special character
+- At least 1 number
+- Can be modified by the Landlord at any time
 
 ## ShareHouse - シェアハウス
 
