@@ -123,10 +123,10 @@ The Tenant has a name.
 
 Constraints:
 
-- at least one character no more than 15 characters.
-- unique (no duplicates).
-- does not have to be the legal name; an arbitrary name can be used instead.
-- can be changed anytime.
+- Greater than or equal to 1 character and less than or equal to 15 characters.
+- Uniqueness.
+- Does not have to be the legal name; an arbitrary name can be used instead.
+- Can be changed anytime.
 
 ### Email Address (Value Object)
 
@@ -134,13 +134,13 @@ The Tenant has an email address.
 
 Constraints:
 
-- unique.
-- should be recognized consistently, irrespective of capitalization.
-- cannot be changed after sending invitation mail.
+- Uniqueness.
+- Should be recognized consistently, irrespective of capitalization.
+- Cannot be changed after sending invitation mail.
 
 ### extraAssignedCount
 
-The default number of The extraAssignedCount is 0. If the number of Categories is larger than the number of Tenants, extraAssignedCount is used to ensure that an equal number of tasks(Category) are assigned to each Tenant.
+The default number of The extraAssignedCount is 0. If the number of Categories is larger than the number of Tenants, extraAssignedCount is used to ensure that an equal number of tasks(Category) is assigned to each Tenant.
 
 Constraints:
 
