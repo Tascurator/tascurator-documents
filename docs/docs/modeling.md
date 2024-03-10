@@ -122,24 +122,17 @@ classDiagram
 
 ### taskId
 
-- TaskId is the UUID
+A UUID set for `Task` assigned to a `Tenant`.
 
 ### title
 
-- The owner can set a title as they prefer. This title can be modified at any time.
-
-Constraints:
-
-- It must be between 1 and 20 characters in length.
+A task which is assigned to each `Tenant`
+AssignedTask, which refers to a `Task`, cannot exist without `Task`.
 
 ### description
 
-- The owner can provide details for the task. This description can be modified at any time.
-
-Constraints:
-
-- The description must be between 10 and 120 characters.
+A description of each AssignedTask
 
 ### completed
 
-- Whether the task is completed or not.
+A boolean value of a task status.
