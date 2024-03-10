@@ -122,9 +122,9 @@ TenantsWork refers to the set of tasks assigned(AssignedCategory) to each tenant
 
 Constraints:
 
-- cannot exist without any AssignedCategory.
-- have only one TenantId.
-- can have more than 1 AssignedCategory.
+- Cannot exist without any AssignedCategory.
+- Have only 1 TenantId.
+- Can have greater than or equal to 1 AssignedCategory.
 
 ### Tenant ID
 
