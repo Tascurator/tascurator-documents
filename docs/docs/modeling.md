@@ -2,14 +2,14 @@
 
 ```mermaid
 classDiagram
-    class Owner {
-        OwnerId ownerId
+    class Landlord {
+        LandlordId LandlordId
         String email
         String password
         List [ShareHouse]
     }
 
-    class OwnerId {
+    class LandlordId {
         String id
     }
 
@@ -81,8 +81,8 @@ classDiagram
         boolean completed
     }
 
-    Owner "1" *-- "1" OwnerId
-    Owner "1" *-- "many" ShareHouse
+    Landlord "1" *-- "1" LandlordId
+    Landlord "1" *-- "many" ShareHouse
     ShareHouse "1" *-- "1" ShareHouseId
     ShareHouse "1" *-- "many" Category
     ShareHouse "1" *-- "many" Tenant
@@ -102,7 +102,39 @@ classDiagram
 
 # Terms and Constraints
 
-## Owner - オーナー
+## Landlord - 大家
+
+### Landlord
+
+The Landlord is the user of Tascurator.
+The Landlord contains ShareHouse.
+
+### Landlord ID (Identifier)
+
+The Landlord ID is a UUID.
+
+### Email Address (Value Object)
+
+The Landlord has an email address.
+
+Constraints:
+
+- Uniqueness
+- In a valid format
+
+### Password
+
+The Landlord has a password.
+
+Constraints:
+
+- Less than or equal to 8 characters long
+- Greater than or equal to characters long
+- At least 1 capital letter
+- At least 1 lowercase letter
+- At least 1 special character
+- At least 1 number
+- Can be modified by the Landlord at any time
 
 ## ShareHouse - シェアハウス
 
