@@ -123,10 +123,10 @@ The Tenant has a name.
 
 Constraints:
 
-- Greater than or equal to 1 character and less than or equal to 15 characters.
-- Uniqueness.
-- Does not have to be the legal name; an arbitrary name can be used instead.
-- Can be changed anytime.
+- Greater than or equal to 1 character and less than or equal to 15 characters
+- Uniqueness
+- Does not have to be the legal name; an arbitrary name can be used instead
+- Can be changed anytime
 
 ### Email Address (Value Object)
 
@@ -134,9 +134,9 @@ The Tenant has an email address.
 
 Constraints:
 
-- Uniqueness.
-- Should be recognized consistently, irrespective of capitalization.
-- Cannot be changed after sending invitation mail.
+- Uniqueness
+- Should be recognized consistently, irrespective of capitalization
+- Cannot be changed after sending invitation mail
 
 ### extraAssignedCount
 
@@ -144,8 +144,8 @@ The default number of The extraAssignedCount is 0. If the number of Categories i
 
 Constraints:
 
-- extraAssignedCount must be more than 0.
-- extraAssignedCount must be integer
+- Greater than 0
+- Integer
 
 ## AssignmentSheet - 分担票
 
