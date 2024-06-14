@@ -266,7 +266,22 @@ The TenantsWork class has Tenant ID. TenantsWork will be created per Tenant.
 
 The TenantsWork contains AssignedCategory. The TenantsWork class has AssignedCategory list.
 
-## AssignedCategory -
+## AssignedCategory -　割当カテゴリー
+
+Category assigned to each tenant.  
+AssignedCategory, which refers to the Category, cannot exist without Category.
+
+### Category ID
+
+Category ID is the UUID set for Category assigned to a tenant.
+
+### Name
+
+Name is set for Category assigned to a tenant.
+
+### List [AssignedTask]
+
+AssignedCategory contains a list of AssignedTasks.
 
 ## AssignedTask - 割当タスク
 
