@@ -168,4 +168,21 @@ The TenantsWork contains AssignedCategory. The TenantsWork class has AssignedCat
 
 ## AssignedCategory -　
 
-## AssignedTask -
+## AssignedTask - 割当タスク
+
+### taskId
+
+A UUID set for `Task` assigned to a `Tenant`.
+
+### title
+
+A task which is assigned to each `Tenant`
+AssignedTask, which refers to a `Task`, cannot exist without `Task`.
+
+### description
+
+A description of each AssignedTask
+
+### completed
+
+A boolean value of a task status.
