@@ -138,6 +138,44 @@ Constraints:
 
 ## ShareHouse - シェアハウス
 
+The Landlord can register a ShareHouse which they own.
+
+### ShareHouse ID (Identifier)
+
+The ShareHouse ID is the UUID.
+
+### ShareHouse Name
+
+The landlord can set a ShareHouse Name as they prefer. This title can be modified at any time.
+
+Constraints：
+
+- Uniqueness
+- Greater than or equal to 1 character
+- Less than or equal to 15 characters
+- Can be modified by Landlord as they like
+- Uppercase and lowercase letters are recognized as the same characters
+
+### rotationCycle
+
+The rotationCycle must be set to Weekly or Fortnightly.
+
+Constraints：
+
+- Must be set to Weekly or Fortnightly.
+
+### assignmentSheet
+
+The assignmentSheet is the tenant's task assignment table.
+
+### List[Category]
+
+The ShareHouse contains Category. The ShareHouse has Category list.
+
+### List[Tenant]
+
+The ShareHouse contains Tenant. The ShareHouse has Tenant list.
+
 ## Category - カテゴリー
 
 The Category is a group to which Task belongs. The landlord can add a Task to the Category after creating Category.  
