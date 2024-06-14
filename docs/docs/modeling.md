@@ -177,6 +177,36 @@ Display a waring dialog when relocating a Task, which is the only one in the Cat
 
 ## Task - タスク
 
+### Task
+
+A specific work or activity that tenants are responsible for performing.
+
+### taskId (Identifier)
+
+The TaskId is a UUID
+
+### title
+
+The title is a name of the task
+
+Constraints:
+
+- at least 1 character
+- less than 20 characters
+- can be modified at any time
+- must be contained in a `Category`
+
+### description
+
+The `Landlord` can provide details for a task.
+
+Constraints:
+
+- at least 10 characters
+- less than 1000 characters
+- can be modified at any time
+- can use bold, italic, and a bulleted or numbered list
+
 ## Tenant - テナント
 
 ## AssignmentSheet - 分担票
