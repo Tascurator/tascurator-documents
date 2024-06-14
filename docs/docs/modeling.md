@@ -56,6 +56,7 @@ classDiagram
         TenantId tenantId
         String email
         String name
+        Int extraAssignedCount
     }
 
     class TenantId {
@@ -208,6 +209,40 @@ Constraints:
 - can use bold, italic, and a bulleted or numbered list
 
 ## Tenant - テナント
+
+### Tenant ID (Identifier)
+
+The Tenant ID is the UUID.
+
+### Name
+
+The Tenant has a name.
+
+Constraints:
+
+- Greater than or equal to 1 character and less than or equal to 15 characters
+- Uniqueness
+- Does not have to be the legal name; an arbitrary name can be used instead
+- Can be changed anytime
+
+### Email Address (Value Object)
+
+The Tenant has an email address.
+
+Constraints:
+
+- Uniqueness
+- Should be recognized consistently, irrespective of capitalization
+- Cannot be changed after sending invitation mail
+
+### extraAssignedCount
+
+The default number of The extraAssignedCount is 0. If the number of Categories is larger than the number of Tenants, extraAssignedCount is used to ensure that an equal number of tasks(Category) is assigned to each Tenant.
+
+Constraints:
+
+- Greater than 0
+- Integer
 
 ## AssignmentSheet - 分担票
 
