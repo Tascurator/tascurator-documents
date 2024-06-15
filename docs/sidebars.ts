@@ -33,6 +33,11 @@ const sidebars: SidebarsConfig = {
       label: 'Domain model',
       id: 'modeling',
     },
+    {
+      type: 'doc',
+      label: 'ER Diagram',
+      id: 'er-diagram',
+    },
   ],
 };
 
