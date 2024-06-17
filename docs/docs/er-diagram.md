@@ -30,7 +30,7 @@ erDiagram
     Task {
         String id PK
         String title
-        JSON description
+        String description
         String category_id FK
     }
 
