@@ -107,25 +107,26 @@ classDiagram
 ### Landlord
 
 - The Landlord is the user of Tascurator.
-- The Landlord owns Share house.
+- The Landlord owns Share houses.
 
 ### Landlord ID (Identifier)
 
 - The Landlord ID is a UUID.
 
-### Email Address (Value Object)
+### Email (Value Object)
 
 - The Landlord has an email address.
 
-- Constraints:
+- **Constraints**
   - Must be unique
-  - Must be in a valid format
+  - Must be in a valid format (Should be recognized consistently, irrespective of capitalization)
+  - Cannot be changed
 
 ### Password
 
 - The Landlord has a password.
 
-- Constraints:
+- **Constraints**
   - Must be at least 1 character long
   - Must be no more than 8 characters long
   - Must contain at least 1 uppercase letter
@@ -138,7 +139,7 @@ classDiagram
 
 - The Landlord can register a Share house that they own.
 
-- Constraints:
+- **Constraints**
   - A Landlord can have up to 10 Share houses.
 
 ### ShareHouse ID (Identifier)
@@ -149,7 +150,7 @@ classDiagram
 
 - The Landlord can set a Share house name as they prefer. This name can be changed at any time.
 
-- Constraints：
+- **Constraints**
   - Must be unique
   - Must be at least 1 character long
   - Must be no more than 15 characters long
@@ -181,7 +182,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 - A Category is a group to which Tasks belong. The Landlord can add Tasks to the Category.
 - Kitchen, Bathroom, Entrance, and Living Room are set by default. The Landlord can delete default categories and also can create additional categories as they like.
 
-- Constraints:
+- **Constraints**
   - Must have at least 1 Category
   - Can have up to 15 Categories
   - A Category cannot exist unless it has at least one Task associated with it
@@ -194,7 +195,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 - The name of the Category.
 
-- Constraints:
+- **Constraints**
   - Must be unique
   - Must be at least 1 character long
   - Must be no more than 15 characters long
@@ -205,7 +206,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 - A Category contains a list of Tasks.
 
-- Constraints:
+- **Constraints**
   - Must contain at least one Task
 
 ## Task - タスク
@@ -213,7 +214,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 ### Task
 
 - A specific work or activity that tenants are responsible for performing.
-- Constraints:
+- **Constraints**
   - A category can contain up to 20 Tasks
 
 ### taskId (Identifier)
@@ -224,7 +225,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 - The title is the name of the task.
 
-- Constraints:
+- **Constraints**
   - Must be at least 1 character long
   - Must be no more than 20 characters long
   - Can be changed at any time
@@ -234,7 +235,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 - The Landlord can provide details for a task.
 
-- Constraints:
+- **Constraints**
   - Must be at least 10 characters long
   - Must be no more than 1000 characters long
   - Can be changed at any time
@@ -245,7 +246,7 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 - The people who live in the share house.
 - The Landlord can add Tenant to the Share house.
 
-- Constraints:
+- **Constraints**
   - A Share house can have up to 20 Tenants.
 
 ### Tenant ID (Identifier)
@@ -256,20 +257,20 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 - The Tenant has a name.
 
-- Constraints:
+- **Constraints**
   - Must be unique
   - Must be at least 1 character long
   - Must be no more than 15 characters long
   - Does not have to be the legal name; an arbitrary name can be used instead
   - Can be changed at any time
 
-### Email Address (Value Object)
+### Email (Value Object)
 
 - The Tenant has an email address.
 
-- Constraints:
+- **Constraints**
   - Must be unique
-  - Should be recognized consistently, irrespective of capitalization
+  - Must be in a valid format (Should be recognized consistently, irrespective of capitalization)
   - Cannot be changed after sending the invitation email
 
 ### extraAssignedCount
@@ -277,17 +278,12 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 - If the number of Categories is greater than the number of Tenants, extraAssignedCount is used to ensure that an equal number of Categories is assigned to each Tenant.
 - The default value of extraAssignedCount is 0.
 
-- Constraints:
+- **Constraints**
   - Must be greater than 0
 
 ## AssignmentSheet - 分担票
 
-Tenant's task assignment table.  
-The AssignmentSheet is including startDate, endDate and TenantsWork.
-
-Constraints：
-
-- Cannot exist without startDate, endDate and TenantsWork
+- Tenant's task assignment table.
 
 ### startDate
 
