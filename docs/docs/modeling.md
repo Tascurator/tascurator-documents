@@ -181,7 +181,7 @@ The ShareHouse contains Tenant. The ShareHouse has Tenant list.
 The Category is a group to which Task belongs. The landlord can add a Task to the Category after creating Category.  
 Display a warning dialog when deleting Category that owns Tasks.
 
-#### Constraints
+Constraints:
 
 - The maximum number of Categories is 15
 - At least one Category per ShareHouse
@@ -196,7 +196,7 @@ Category ID is the UUID.
 The name of Category to which Task belongs.  
 Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can create additional categories as they like apart from those listed.
 
-#### Constraints
+Constraints:
 
 - Uniqueness
 - Less than or equal to 15 letters
@@ -209,7 +209,7 @@ Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can
 Category contains a list of tasks.  
 Display a waring dialog when relocating a Task, which is the only one in the Category, to another Category.
 
-#### Constraints
+Constraints:
 
 - Must contain at least one Task
 - Can relocate to only existing Category
