@@ -153,7 +153,7 @@ classDiagram
   - Must be unique
   - Must be at least 1 character long
   - Must be no more than 15 characters long
-  - Uppercase and lowercase letters are treated as the same
+  - 🥕 Uppercase and lowercase letters are treated as the same
   - Can be modified by the Landlord at any time
 
 <!-- ### rotationCycle
@@ -178,73 +178,66 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 ## Category - カテゴリー
 
-The Category is a group to which Task belongs. The landlord can add a Task to the Category after creating Category.  
-Display a warning dialog when deleting Category that owns Tasks.
+- A Category is a group to which Tasks belong. The Landlord can add Tasks to the Category.
+- Kitchen, Bathroom, Entrance, and Living Room are set by default. The Landlord can delete default categories and also can create additional categories as they like.
 
-Constraints:
-
-- The maximum number of Categories is 15
-- At least one Category per Share house
-- Category doesn't exist unless there is at least one task associated with it
+- Constraints:
+  - Must have at least 1 Category
+  - Can have up to 15 Categories
+  - A Category cannot exist unless it has at least one Task associated with it
 
 ### Category ID
 
-Category ID is the UUID.
+- The Category ID is a UUID.
 
 ### Name
 
-The name of Category to which Task belongs.  
-Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can create additional categories as they like apart from those listed.
+- The name of the Category.
 
-Constraints:
-
-- Uniqueness
-- Less than or equal to 15 letters
-- Greater than or equal to 1 letter
-- Can be modified by Landlord as they like
-- Uppercase and lowercase letters are recognized as the same characters
+- Constraints:
+  - Must be unique
+  - Must be at least 1 character long
+  - Must be no more than 15 characters long
+  - Can be modified by the Landlord at any time
+  - 🥕 Uppercase and lowercase letters are treated as the same
 
 ### List [Task]
 
-Category contains a list of tasks.  
-Display a waring dialog when relocating a Task, which is the only one in the Category, to another Category.
+- A Category contains a list of Tasks.
 
-Constraints:
-
-- Must contain at least one Task
-- Can relocate to only existing Category
+- Constraints:
+  - Must contain at least one Task
+  - Can contain up to 20 Tasks
 
 ## Task - タスク
 
 ### Task
 
-A specific work or activity that tenants are responsible for performing.
+- A specific work or activity that tenants are responsible for performing.
 
 ### taskId (Identifier)
 
-The TaskId is a UUID
+- The Task ID is a UUID.
 
 ### title
 
-The title is a name of the task
+- The title is the name of the task.
 
-Constraints:
+- Constraints:
+  - Must be at least 1 character long
+  - Must be no more than 20 characters long
+  - Can be changed at any time
+  - Must be contained in a Category
 
-- at least 1 character
-- less than 20 characters
-- can be modified at any time
-- must be contained in a `Category`
+### Description
 
-### description
+- The Landlord can provide details for a task.
 
-The `Landlord` can provide details for a task.
-
-Constraints:
-
-- at least 10 characters
-- less than 1000 characters
-- can be modified at any time
-- can use bold, italic, and a bulleted or numbered list
+- Constraints:
+  - Must be at least 10 characters long
+  - Must be no more than 1000 characters long
+  - Can be changed at any time
+  - Can include bold, underline, and bulleted or numbered lists
 
 ## Tenant - テナント
 
