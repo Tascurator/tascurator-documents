@@ -136,43 +136,45 @@ classDiagram
 
 ## ShareHouse - シェアハウス
 
-The Landlord can register a Share house which they own.
+- The Landlord can register a Share house that they own.
+
+- Constraints:
+  - A Landlord can have up to 10 Share houses.
 
 ### ShareHouse ID (Identifier)
 
-The ShareHouse ID is the UUID.
+- The ShareHouse ID is a UUID.
 
 ### ShareHouse Name
 
-The landlord can set a Share house Name as they prefer. This title can be modified at any time.
+- The Landlord can set a Share house name as they prefer. This name can be changed at any time.
 
-Constraints：
+- Constraints：
+  - Must be unique
+  - Must be at least 1 character long
+  - Must be no more than 15 characters long
+  - Uppercase and lowercase letters are treated as the same
+  - Can be modified by the Landlord at any time
 
-- Uniqueness
-- Greater than or equal to 1 character
-- Less than or equal to 15 characters
-- Can be modified by Landlord as they like
-- Uppercase and lowercase letters are recognized as the same characters
-
-### rotationCycle
+<!-- ### rotationCycle
 
 The rotationCycle must be set to Weekly or Fortnightly.
 
 Constraints：
 
-- Must be set to Weekly or Fortnightly.
+- Must be set to Weekly or Fortnightly. -->
 
-### assignmentSheet
+<!-- ### assignmentSheet
 
-The assignmentSheet is the tenant's task assignment table.
+The assignmentSheet is the tenant's task assignment table. -->
 
-### List[Category]
+<!-- ### List[Category]
 
 The Share house contains Category. The Share house has Category list.
 
 ### List[Tenant]
 
-The Share house contains Tenant. The Share house has Tenant list.
+The Share house contains Tenant. The Share house has Tenant list. -->
 
 ## Category - カテゴリー
 
