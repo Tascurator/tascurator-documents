@@ -207,13 +207,14 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 - Constraints:
   - Must contain at least one Task
-  - Can contain up to 20 Tasks
 
 ## Task - タスク
 
 ### Task
 
 - A specific work or activity that tenants are responsible for performing.
+- Constraints:
+  - A category can contain up to 20 Tasks
 
 ### taskId (Identifier)
 
@@ -241,39 +242,43 @@ The Share house contains Tenant. The Share house has Tenant list. -->
 
 ## Tenant - テナント
 
+- The people who live in the share house.
+- The Landlord can add Tenant to the Share house.
+
+- Constraints:
+  - A Share house can have up to 20 Tenants.
+
 ### Tenant ID (Identifier)
 
-The Tenant ID is the UUID.
+- The Tenant ID is a UUID.
 
 ### Name
 
-The Tenant has a name.
+- The Tenant has a name.
 
-Constraints:
-
-- Greater than or equal to 1 character and less than or equal to 15 characters
-- Uniqueness
-- Does not have to be the legal name; an arbitrary name can be used instead
-- Can be changed anytime
+- Constraints:
+  - Must be unique
+  - Must be at least 1 character long
+  - Must be no more than 15 characters long
+  - Does not have to be the legal name; an arbitrary name can be used instead
+  - Can be changed at any time
 
 ### Email Address (Value Object)
 
-The Tenant has an email address.
+- The Tenant has an email address.
 
-Constraints:
-
-- Uniqueness
-- Should be recognized consistently, irrespective of capitalization
-- Cannot be changed after sending invitation mail
+- Constraints:
+  - Must be unique
+  - Should be recognized consistently, irrespective of capitalization
+  - Cannot be changed after sending the invitation email
 
 ### extraAssignedCount
 
-The default number of The extraAssignedCount is 0. If the number of Categories is larger than the number of Tenants, extraAssignedCount is used to ensure that an equal number of tasks(Category) is assigned to each Tenant.
+- If the number of Categories is greater than the number of Tenants, extraAssignedCount is used to ensure that an equal number of Categories is assigned to each Tenant.
+- The default value of extraAssignedCount is 0.
 
-Constraints:
-
-- Greater than 0
-- Integer
+- Constraints:
+  - Must be greater than 0
 
 ## AssignmentSheet - 分担票
 
