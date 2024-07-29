@@ -107,7 +107,7 @@ classDiagram
 ### Landlord
 
 The Landlord is the user of Tascurator.
-The Landlord contains ShareHouse.
+The Landlord contains Share house.
 
 ### Landlord ID (Identifier)
 
@@ -138,7 +138,7 @@ Constraints:
 
 ## ShareHouse - シェアハウス
 
-The Landlord can register a ShareHouse which they own.
+The Landlord can register a Share house which they own.
 
 ### ShareHouse ID (Identifier)
 
@@ -146,7 +146,7 @@ The ShareHouse ID is the UUID.
 
 ### ShareHouse Name
 
-The landlord can set a ShareHouse Name as they prefer. This title can be modified at any time.
+The landlord can set a Share house Name as they prefer. This title can be modified at any time.
 
 Constraints：
 
@@ -170,11 +170,11 @@ The assignmentSheet is the tenant's task assignment table.
 
 ### List[Category]
 
-The ShareHouse contains Category. The ShareHouse has Category list.
+The Share house contains Category. The Share house has Category list.
 
 ### List[Tenant]
 
-The ShareHouse contains Tenant. The ShareHouse has Tenant list.
+The Share house contains Tenant. The Share house has Tenant list.
 
 ## Category - カテゴリー
 
@@ -184,7 +184,7 @@ Display a warning dialog when deleting Category that owns Tasks.
 Constraints:
 
 - The maximum number of Categories is 15
-- At least one Category per ShareHouse
+- At least one Category per Share house
 - Category doesn't exist unless there is at least one task associated with it
 
 ### Category ID
