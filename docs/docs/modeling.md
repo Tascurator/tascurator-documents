@@ -106,35 +106,33 @@ classDiagram
 
 ### Landlord
 
-The Landlord is the user of Tascurator.
-The Landlord contains Share house.
+- The Landlord is the user of Tascurator.
+- The Landlord owns Share house.
 
 ### Landlord ID (Identifier)
 
-The Landlord ID is a UUID.
+- The Landlord ID is a UUID.
 
 ### Email Address (Value Object)
 
-The Landlord has an email address.
+- The Landlord has an email address.
 
-Constraints:
-
-- Uniqueness
-- In a valid format
+- Constraints:
+  - Must be unique
+  - Must be in a valid format
 
 ### Password
 
-The Landlord has a password.
+- The Landlord has a password.
 
-Constraints:
-
-- Less than or equal to 8 characters long
-- Greater than or equal to characters long
-- At least 1 capital letter
-- At least 1 lowercase letter
-- At least 1 special character
-- At least 1 number
-- Can be modified by the Landlord at any time
+- Constraints:
+  - Must be at least 1 character long
+  - Must be no more than 8 characters long
+  - Must contain at least 1 uppercase letter
+  - Must contain at least 1 lowercase letter
+  - Must contain at least 1 special character
+  - Must contain at least 1 number
+  - Can be changed by the Landlord at any time
 
 ## ShareHouse - シェアハウス
 
