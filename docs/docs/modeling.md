@@ -2,10 +2,24 @@
 
 ```mermaid
 classDiagram
+
+    class ShareHouse {
+        ShareHouseId shareHouseId
+        String name
+        LandlordId landlordId
+        AssignmentSheetId assignmentSheetId
+        DateTime createdAt
+    }
+
+    class ShareHouseId {
+        String id
+    }
+
     class Landlord {
         LandlordId LandlordId
         String email
         String password
+        DateTime emailVerified
         List [ShareHouse]
     }
 
@@ -13,29 +27,12 @@ classDiagram
         String id
     }
 
-    class ShareHouse {
-        ShareHouseId shareHouseId
-        String name
-        Int rotationCycle
-        AssignmentSheet assignmentSheet
-        List [Category]
-        List [Tenant]
-    }
-
-    class ShareHouseId {
-        String id
-    }
-
-    class AssignmentSheet {
-        Date startDate
-        Date endDate
-        List [TenantsWork]
-    }
-
     class Category {
         CategoryId categoryId
+        RotationAssignmentId rotationAssignmentId
         String name
-        List [Task]
+        DateTime createdAt
+        List [tasks]
     }
 
     class CategoryId {
@@ -46,6 +43,8 @@ classDiagram
         TaskId taskId
         String title
         String description
+        DateTime createdAt
+        CategoryId categoryId
     }
 
     class TaskId {
@@ -56,314 +55,220 @@ classDiagram
         TenantId tenantId
         String email
         String name
-        Int extraAssignedCount
+        Int extra_assigned_count
+        DateTime createdAt
+        List [TenantPlaceholder]
     }
 
     class TenantId {
         String id
     }
 
-    class TenantsWork {
+    class TenantPlaceholder {
+        TenantPlaceholderId tenantPlaceholderId
+        RotationAssignmentId rotationAssignmentId
         TenantId tenantId
-        List [AssignedCategory]
     }
 
-    class AssignedCategory {
-        CategoryId categoryId
-        String name
-        List [AssignedTask]
+    class TenantPlaceholderId {
+        Int index
     }
 
-    class AssignedTask {
-        TaskId taskId
-        String title
-        String description
-        boolean completed
+    class RotationAssignment {
+        RotationAssignmentId rotationAssignmentId
+        ShareHouseId shareHouseId
+        Int rotationCycle
+        List [Category]
+        List [TenantPlaceholder]
+    }
+
+    class RotationAssignmentId {
+        String id
+    }
+
+    class AssignmentSheet {
+        AssignmentSheetId assignmentSheetId
+        DateTime startDate
+        DateTime endDate
+        JSON assignedData
+    }
+
+    class AssignmentSheetId {
+        String id
     }
 
     Landlord "1" *-- "1" LandlordId
-    Landlord "1" *-- "many" ShareHouse
     ShareHouse "1" *-- "1" ShareHouseId
-    ShareHouse "1" *-- "many" Category
-    ShareHouse "1" *-- "many" Tenant
-    ShareHouse "1" *-- "1" AssignmentSheet
     Category "1" *-- "1" CategoryId
-    Category "1" *-- "many" Task
     Task "1" *-- "1" TaskId
     Tenant "1" *-- "1" TenantId
-    AssignmentSheet "1" *-- "many" TenantsWork
-    TenantsWork "1" *-- "many" AssignedCategory
-    TenantsWork "1" *-- "1" TenantId
-    AssignedCategory "1" *-- "1" CategoryId
-    AssignedCategory "1" *-- "many" AssignedTask
-    AssignedTask "1" *-- "1" TaskId
+    AssignmentSheet "1" *-- "1" AssignmentSheetId
+    TenantPlaceholder "1" *-- "1" TenantPlaceholderId
+
+    RotationAssignment "1" *-- "1" RotationAssignmentId
+    ShareHouse "1" *-- "1" landlordId
+    ShareHouse "1" *-- "1" AssignmentSheetId
+    ShareHouse "1" *-- "1" RotationAssignmentId
+    ShareHouse "1" *-- "many" Landlord
+    ShareHouse "1" *-- "many" AssignmentSheet
+    ShareHouse "1" *-- "many" RotationAssignment
+    Landlord "1" *-- "many" ShareHouse
+    Category "1" *-- "1" RotationAssignmentId
+    Category "1" *-- "many" Task
+    Task "1" *-- "1" CategoryId
+    Tenant "1" *-- "many" TenantPlaceholder
+    TenantPlaceholder "1" *-- "1" TenantId
+    TenantPlaceholder "1" *-- "1" RotationAssignmentId
+    RotationAssignment "1" *-- "1" ShareHouseId
+    RotationAssignment "1" *-- "many" Category
+    RotationAssignment "1" *-- "many" TenantPlaceholder
+    RotationAssignment "1" *-- "1" ShareHouse
 
 ```
 
-# Terms and Constraints
+# Attributes and Constraints
+
+## Landlord
+
+### Attributes
+
+- **id**: A unique identifier for the landlord. This is a UUID.
+- **email**: An email address of the landlord.
+- **password**: A password for the landlord's account.
+- **emailVerified**: A date-time value indicating when the landlord's email was verified. This can be null if the email has not been verified.
 
-## Landlord - 大家
+### Constraints
 
-### Landlord
+- `email` must be unique and follow a valid email format.
+- `email` cannot be changed.
+- `password` must meet specific security requirements, including:
+  - At least 8 character and no more than 30 characters.
+  - At least 1 capital letter.
+  - At least 1 lowercase letter.
+  - At least 1 special character.
+  - At least 1 number.
+  - Can be changed by the **`Landlord`** at any time.
 
-The Landlord is the user of Tascurator.
-The Landlord contains ShareHouse.
+## ShareHouse
 
-### Landlord ID (Identifier)
+### Attributes
 
-The Landlord ID is a UUID.
+- **id**: A unique identifier for the share house. This is a UUID.
+- **name**: A name of the share house, named by the landlord.
+- **createdAt**: A timestamp indicating when the share house was registered.
+- **landlord_id**: An ID of the landlord who owns the share house. This establishes a relationship with the Landlord model.
+- **assignment_sheet_id**: An ID of the assignment sheet associated with the share house. This establishes a relationship with the AssignmentSheet model.
 
-### Email Address (Value Object)
+### Constraints
 
-The Landlord has an email address.
+- **`Landlord`** can have up to 10 **`ShareHouse`**.
+- `name` must meet specific requirements, including:
+  - At least 1 character and no more than 50 characters.
+  - Must be unique.
+  - Uppercase and lowercase letters are treated as distinct.
+  - Can be modified by the **`Landlord`** at any time.
 
-Constraints:
+## Category
 
-- Uniqueness
-- In a valid format
+### Attributes
 
-### Password
+- **id**: A unique identifier for the category. This is a UUID.
+- **name**: The name of the category, named by the landlord.
+- **createdAt**: The timestamp indicating when the category was created.
+- **rotation_assignment_id**: The ID of the rotation assignment associated with this category. This establishes a relationship with the RotationAssignment model.
 
-The Landlord has a password.
+### Constraints
 
-Constraints:
+- **`Landlord`** can have up to 15 **`Category`**.
+- **`Category`** must contain at least one **`Task`**.
+- `name` must meet specific requirements, including:
+  - At least 1 character and no more than 15 characters.
+  - Must be unique
+  - Uppercase and lowercase letters are treated as distinct.
+  - Can be modified by the **`Landlord`** at any time.
 
-- Less than or equal to 8 characters long
-- Greater than or equal to characters long
-- At least 1 capital letter
-- At least 1 lowercase letter
-- At least 1 special character
-- At least 1 number
-- Can be modified by the Landlord at any time
+## Task
 
-## ShareHouse - シェアハウス
+### Attributes
 
-The Landlord can register a ShareHouse which they own.
+- **id**: A unique identifier for the task. This is a UUID.
+- **title**: The name of the task, named by the landlord.
+- **createdAt**: The timestamp indicating when the task was created.
+- **description**: A detailed description of what the task involves. This helps tenants understand what is required to complete the task.
+- **category_id**: The ID of the category to which this task belongs. This establishes a relationship with the Category model.
 
-### ShareHouse ID (Identifier)
+### Constraints
 
-The ShareHouse ID is the UUID.
+- **`Category`** can contain up to 20 **`Task`**.
+- Every **`Task`** must belong to a **`Category`**.
+- `title` must meet specific requirements, including:
+  - At least 1 character and no more than 50 characters.
+  - Can be modified by the **`Landlord`** at any time.
+- `description` must meet specific requirements, including:
+  - At least 10 character and no more than 1000 characters.
+  - Can be modified by the **`Landlord`** at any time.
+- `description` can include bold, italic, and underline text, as well as bulleted or numbered lists.
 
-### ShareHouse Name
+## Tenant
 
-The landlord can set a ShareHouse Name as they prefer. This title can be modified at any time.
+### Attributes
 
-Constraints：
+- **id**: A unique identifier for the tenant. This is a UUID.
+- **email**: The email address of the tenant. This is used for account management.
+- **name**: The tenant's name. This can be an arbitrary name and does not need to be the tenant's legal name.
+- **createdAt**: The timestamp indicating when the tenant was registered.
+- **extra_assigned_count**: An integer representing the number of additional tasks assigned to the tenant. This is used to ensure an equal distribution of tasks among tenants when the number of tasks exceeds the number of tenants. The default value is 0.
 
-- Uniqueness
-- Greater than or equal to 1 character
-- Less than or equal to 15 characters
-- Can be modified by Landlord as they like
-- Uppercase and lowercase letters are recognized as the same characters
+### Constraints
 
-### rotationCycle
+- **`Sharehouse`** can have up to 20 **`Tenant`**.
+- `email` must be unique and follow a valid email format.
+- `email` cannot be changed after sending the invitation mail.
+- `name` must meet specific requirements, including:
+  - At least 1 character and no more than 15 characters.
+  - Must be unique
+  - Uppercase and lowercase letters are treated as distinct.
+  - Can be modified by the **`Landlord`** at any time.
+- `extra_assigned_count` must be an integer greater than or equal to 0.
 
-The rotationCycle must be set to Weekly or Fortnightly.
+## AssignmentSheet
 
-Constraints：
+### Attributes
 
-- Must be set to Weekly or Fortnightly.
+- **id**: A unique identifier for the assignment sheet. This is a UUID.
+- **start_date**: The start date for the task assignment period. This indicates when the tasks should begin.
+- **end_date**: The end date for the task assignment period. This indicates the deadline for completing the tasks.
+- **assigned_data**: A JSON object containing the detailed task assignments for each tenant.
 
-### assignmentSheet
+### Constraints
 
-The assignmentSheet is the tenant's task assignment table.
+- The time zone is PST (Pacific Standard Time) or PDT(Pacific Daylight Time).
+- **`AssignmentSheet`** must linked to a **`ShareHouse`**.
 
-### List[Category]
+## RotationAssignment
 
-The ShareHouse contains Category. The ShareHouse has Category list.
+### Attributes
 
-### List[Tenant]
+- **id**: A unique identifier for the rotation assignment. This is a UUID.
+- **share_house_id**: The ID of the ShareHouse to which this rotation assignment belongs. This links the rotation assignment to a specific ShareHouse.
+- **rotation_cycle**: Specifies the frequency of task rotation. This can be set to either "Weekly"(7 days) or "Fortnightly"(14 days).
 
-The ShareHouse contains Tenant. The ShareHouse has Tenant list.
+### Constraints
 
-## Category - カテゴリー
+- Must be linked to one **`ShareHouse`**.
+- Must be linked to one or more one **`Category`**.
+- The `rotation_cycle` must be set to either "Weekly" or "Fortnightly".
 
-The Category is a group to which Task belongs. The landlord can add a Task to the Category after creating Category.  
-Display a warning dialog when deleting Category that owns Tasks.
+## TenantPlaceholder
 
-#### Constraints
+### Attributes
 
-- The maximum number of Categories is 15
-- At least one Category per ShareHouse
-- Category doesn't exist unless there is at least one task associated with it
+- **index**: An integer indicating the position within the rotation cycle. This specifies the order of tenants.
+- **rotation_assignment_id**: The ID of the RotationAssignment to which this TenantPlaceholder belongs.
+- **tenant_id**: The ID of the tenant assigned to this position. This is optional and can be null if no specific tenant is assigned.
 
-### Category ID
+### Constraints
 
-Category ID is the UUID.
-
-### Name
-
-The name of Category to which Task belongs.  
-Kitchen, Bathroom, Entrance and Living room are set by default. The landlord can create additional categories as they like apart from those listed.
-
-#### Constraints
-
-- Uniqueness
-- Less than or equal to 15 letters
-- Greater than or equal to 1 letter
-- Can be modified by Landlord as they like
-- Uppercase and lowercase letters are recognized as the same characters
-
-### List [Task]
-
-Category contains a list of tasks.  
-Display a waring dialog when relocating a Task, which is the only one in the Category, to another Category.
-
-#### Constraints
-
-- Must contain at least one Task
-- Can relocate to only existing Category
-
-## Task - タスク
-
-### Task
-
-A specific work or activity that tenants are responsible for performing.
-
-### taskId (Identifier)
-
-The TaskId is a UUID
-
-### title
-
-The title is a name of the task
-
-Constraints:
-
-- at least 1 character
-- less than 20 characters
-- can be modified at any time
-- must be contained in a `Category`
-
-### description
-
-The `Landlord` can provide details for a task.
-
-Constraints:
-
-- at least 10 characters
-- less than 1000 characters
-- can be modified at any time
-- can use bold, italic, and a bulleted or numbered list
-
-## Tenant - テナント
-
-### Tenant ID (Identifier)
-
-The Tenant ID is the UUID.
-
-### Name
-
-The Tenant has a name.
-
-Constraints:
-
-- Greater than or equal to 1 character and less than or equal to 15 characters
-- Uniqueness
-- Does not have to be the legal name; an arbitrary name can be used instead
-- Can be changed anytime
-
-### Email Address (Value Object)
-
-The Tenant has an email address.
-
-Constraints:
-
-- Uniqueness
-- Should be recognized consistently, irrespective of capitalization
-- Cannot be changed after sending invitation mail
-
-### extraAssignedCount
-
-The default number of The extraAssignedCount is 0. If the number of Categories is larger than the number of Tenants, extraAssignedCount is used to ensure that an equal number of tasks(Category) is assigned to each Tenant.
-
-Constraints:
-
-- Greater than 0
-- Integer
-
-## AssignmentSheet - 分担票
-
-Tenant's task assignment table.  
-The AssignmentSheet is including startDate, endDate and TenantsWork.
-
-Constraints：
-
-- Cannot exist without startDate, endDate and TenantsWork
-
-### startDate
-
-The startDate of the task to be performed by the Tenant.
-
-Constraints：
-
-- Must contain the startDate
-- The time zone is PST (Pacific Standard Time)
-
-### endDate:
-
-The deadline for completing the task.
-
-Constraints：
-
-- The time zone is PST (Pacific Standard Time)
-
-### List [TenantsWork]
-
-The TenantsWork has tasks assigned to each tenant AssignedCategory.
-
-## TenantsWork - 割当
-
-## TenantsWork(Entity)
-
-TenantsWork refers to the set of tasks assigned(AssignedCategory) to each tenant.
-
-Constraints:
-
-- Cannot exist without any AssignedCategory.
-- Have only 1 TenantId.
-- Can have greater than or equal to 1 AssignedCategory.
-
-### Tenant ID
-
-The TenantsWork class has Tenant ID. TenantsWork will be created per Tenant.
-
-### AssignedCategory
-
-The TenantsWork contains AssignedCategory. The TenantsWork class has AssignedCategory list.
-
-## AssignedCategory -　割当カテゴリー
-
-Category assigned to each tenant.  
-AssignedCategory, which refers to the Category, cannot exist without Category.
-
-### Category ID
-
-Category ID is the UUID set for Category assigned to a tenant.
-
-### Name
-
-Name is set for Category assigned to a tenant.
-
-### List [AssignedTask]
-
-AssignedCategory contains a list of AssignedTasks.
-
-## AssignedTask - 割当タスク
-
-### taskId
-
-A UUID set for `Task` assigned to a `Tenant`.
-
-### title
-
-A task which is assigned to each `Tenant`
-AssignedTask, which refers to a `Task`, cannot exist without `Task`.
-
-### description
-
-A description of each AssignedTask
-
-### completed
-
-A boolean value of a task status.
+- Must be linked to one **`RotationAssignment`**.
+- Can link to one **`Tenant`**, but it is not mandatory (it can be null).
+- `index` must indicate a unique order within the `rotation_cycle`.

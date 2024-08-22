@@ -18,15 +18,9 @@ const sidebars: SidebarsConfig = {
       id: 'intro',
     },
     {
-      type: 'category',
-      label: 'Dummy',
-      items: [
-        {
-          type: 'doc',
-          label: 'Dummy',
-          id: 'dummy',
-        },
-      ],
+      type: 'doc',
+      label: 'Terms',
+      id: 'terms',
     },
     {
       type: 'doc',
@@ -37,6 +31,17 @@ const sidebars: SidebarsConfig = {
       type: 'doc',
       label: 'ER Diagram',
       id: 'er-diagram',
+    },
+    {
+      type: 'category',
+      label: 'Dummy',
+      items: [
+        {
+          type: 'doc',
+          label: 'Dummy',
+          id: 'dummy',
+        },
+      ],
     },
   ],
 };
