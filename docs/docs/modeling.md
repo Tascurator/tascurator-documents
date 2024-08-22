@@ -142,7 +142,7 @@ classDiagram
 - `email` must be unique and follow a valid email format.
 - `email` cannot be changed.
 - `password` must meet specific security requirements, including:
-  - At least 1 character and no more than 8 characters.
+  - At least 8 character and no more than 30 characters.
   - At least 1 capital letter.
   - At least 1 lowercase letter.
   - At least 1 special character.
@@ -163,7 +163,7 @@ classDiagram
 
 - **`Landlord`** can have up to 10 **`ShareHouse`**.
 - `name` must meet specific requirements, including:
-  - At least 1 character and no more than 15 characters.
+  - At least 1 character and no more than 50 characters.
   - Must be unique.
   - Uppercase and lowercase letters are treated as distinct.
   - Can be modified by the **`Landlord`** at any time.
@@ -202,7 +202,7 @@ classDiagram
 - **`Category`** can contain up to 20 **`Task`**.
 - Every **`Task`** must belong to a **`Category`**.
 - `title` must meet specific requirements, including:
-  - At least 1 character and no more than 20 characters.
+  - At least 1 character and no more than 50 characters.
   - Can be modified by the **`Landlord`** at any time.
 - `description` must meet specific requirements, including:
   - At least 10 character and no more than 1000 characters.
